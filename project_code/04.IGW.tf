@@ -6,11 +6,11 @@ resource "aws_internet_gateway" "igw_seoul" {
   }
 }
 
-# 프랑스 IGW
-resource "aws_internet_gateway" "igw_france" {
-  provider = aws.france
-  vpc_id   = aws_vpc.france.id
+# 미국 버지니아 IGW
+resource "aws_internet_gateway" "igw_Virginia" {
+  provider = aws.Virginia
+  vpc_id   = aws_vpc.Virginia.id
   tags = {
-    Name = "CV_IGW_France"
+    Name = "CV_IGW_Virginia"
   }
 }
