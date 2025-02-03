@@ -1,41 +1,27 @@
-# 서울 VPC 서브넷
-resource "aws_subnet" "public_seoul" {
-  vpc_id                  = aws_vpc.seoul.id
-  cidr_block              = "10.0.1.0/24"
-  map_public_ip_on_launch = true
-  availability_zone       = "ap-northeast-2a"
+provider "aws" {
+  region = "ap-northeast-2" # 서울 리전
+}
+
+resource "aws_vpc" "seoul" {
+  cidr_block           = "10.0.0.0/16"
+  enable_dns_support   = true
+  enable_dns_hostnames = true
   tags = {
-    Name = "CV_Subnet_Public_Seoul"
+    Name = "CV_VPC_Seoul"
   }
 }
 
-resource "aws_subnet" "private_seoul" {
-  vpc_id            = aws_vpc.seoul.id
-  cidr_block        = "10.0.2.0/24"
-  availability_zone = "ap-northeast-2a"
-  tags = {
-    Name = "CV_Subnet_Private_Seoul"
-  }
+provider "aws" {
+  alias  = "Virginia"
+  region = "us-east-1" # 미국 버지니아 리전
 }
 
-# 미국 버지니아 VPC 서브넷
-resource "aws_subnet" "public_Virginia" {
-  provider               = aws.Virginia
-  vpc_id                 = aws_vpc.Virginia.id
-  cidr_block             = "10.1.1.0/24"
-  map_public_ip_on_launch = true
-  availability_zone      = "us-east-1a"
+resource "aws_vpc" "Virginia" {
+  provider             = aws.Virginia
+  cidr_block           = "10.1.0.0/16"
+  enable_dns_support   = true
+  enable_dns_hostnames = true
   tags = {
-    Name = "CV_Subnet_Public_Virginia"
-  }
-}
-
-resource "aws_subnet" "private_Virginia" {
-  provider         = aws.Virginia
-  vpc_id           = aws_vpc.Virginia.id
-  cidr_block       = "10.1.2.0/24"
-  availability_zone = "us-east-1a"
-  tags = {
-    Name = "CV_Subnet_Private_Virginia"
+    Name = "CV_VPC_Virginia"
   }
 }
