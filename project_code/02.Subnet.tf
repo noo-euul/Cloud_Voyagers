@@ -18,24 +18,24 @@ resource "aws_subnet" "private_seoul" {
   }
 }
 
-# 프랑스 VPC 서브넷
-resource "aws_subnet" "public_france" {
-  provider               = aws.france
-  vpc_id                 = aws_vpc.france.id
+# 미국 버지니아 VPC 서브넷
+resource "aws_subnet" "public_Virginia" {
+  provider               = aws.Virginia
+  vpc_id                 = aws_vpc.Virginia.id
   cidr_block             = "10.1.1.0/24"
   map_public_ip_on_launch = true
-  availability_zone      = "eu-west-3a"
+  availability_zone      = "us-east-1a"
   tags = {
-    Name = "CV_Subnet_Public_France"
+    Name = "CV_Subnet_Public_Virginia"
   }
 }
 
-resource "aws_subnet" "private_france" {
-  provider         = aws.france
-  vpc_id           = aws_vpc.france.id
+resource "aws_subnet" "private_Virginia" {
+  provider         = aws.Virginia
+  vpc_id           = aws_vpc.Virginia.id
   cidr_block       = "10.1.2.0/24"
-  availability_zone = "eu-west-3a"
+  availability_zone = "us-east-1a"
   tags = {
-    Name = "CV_Subnet_Private_France"
+    Name = "CV_Subnet_Private_Virginia"
   }
 }
