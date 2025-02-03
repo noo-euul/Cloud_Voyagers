@@ -14,20 +14,20 @@ resource "aws_nat_gateway" "nat_seoul" {
   }
 }
 
-# 프랑스 NAT GW
-resource "aws_eip" "nat_eip_france" {
-  provider = aws.france
+# 미국 버지니아 NAT GW
+resource "aws_eip" "nat_eip_Virginia" {
+  provider = aws.Virginia
   vpc      = true
   tags = {
-    Name = "CV_NAT_EIP_France"
+    Name = "CV_NAT_EIP_Virginia"
   }
 }
 
-resource "aws_nat_gateway" "nat_france" {
-  provider      = aws.france
-  allocation_id = aws_eip.nat_eip_france.id
-  subnet_id     = aws_subnet.public_france.id
+resource "aws_nat_gateway" "nat_Virginia" {
+  provider      = aws.Virginia
+  allocation_id = aws_eip.nat_eip_Virginia.id
+  subnet_id     = aws_subnet.public_Virginia.id
   tags = {
-    Name = "CV_NAT_France"
+    Name = "CV_NAT_Virginia"
   }
 }
