@@ -17,24 +17,24 @@ resource "aws_route_table_association" "public_rt_assoc_seoul" {
   route_table_id = aws_route_table.public_rt_seoul.id
 }
 
-# 프랑스 라우팅 테이블
-resource "aws_route_table" "public_rt_france" {
-  provider = aws.france
-  vpc_id   = aws_vpc.france.id
+# 미국 버지니아 라우팅 테이블
+resource "aws_route_table" "public_rt_Virginia" {
+  provider = aws.Virginia
+  vpc_id   = aws_vpc.Virginia.id
   tags = {
-    Name = "CV_Public_RT_France"
+    Name = "CV_Public_RT_Virginia"
   }
 }
 
-resource "aws_route" "public_route_france" {
-  provider              = aws.france
-  route_table_id         = aws_route_table.public_rt_france.id
+resource "aws_route" "public_route_Virginia" {
+  provider              = aws.Virginia
+  route_table_id         = aws_route_table.public_rt_Virginia.id
   destination_cidr_block = "0.0.0.0/0"
-  gateway_id             = aws_internet_gateway.igw_france.id
+  gateway_id             = aws_internet_gateway.igw_Virginia.id
 }
 
-resource "aws_route_table_association" "public_rt_assoc_france" {
-  provider       = aws.france
-  subnet_id      = aws_subnet.public_france.id
-  route_table_id = aws_route_table.public_rt_france.id
+resource "aws_route_table_association" "public_rt_assoc_Virginia" {
+  provider       = aws.Virginia
+  subnet_id      = aws_subnet.public_Virginia.id
+  route_table_id = aws_route_table.public_rt_Virginia.id
 }
