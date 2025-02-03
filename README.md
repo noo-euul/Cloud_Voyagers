@@ -42,7 +42,7 @@ git clone https://github.com/noo-euul/Cloud_Voyagers.git
 
 
 ### 2. **환경 설정**
-cd Cloud_Voyagers/code
+cd Cloud_Voyagers/project_code
 npm install
 
 
