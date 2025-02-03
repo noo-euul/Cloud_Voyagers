@@ -38,11 +38,11 @@ Cloud Voyagers Team Project
 ## 🚀 설치 방법
 
 ### 1. **프로젝트 클론**
-git clone https://github.com/noo-euul/CloudVoyagers.git
+git clone https://github.com/noo-euul/Cloud_Voyagers.git
 
 
 ### 2. **환경 설정**
-cd CloudVoyagers/Cloud_Voyagers_Team_Project
+cd Cloud_Voyagers/code
 npm install
 
 
