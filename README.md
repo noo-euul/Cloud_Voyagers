@@ -28,7 +28,7 @@ Cloud Voyagers Team Project
 
 ## ⚙️ 기술 스택
 
-- **Frontend**: 
+- **Frontend**: 모바일 애플리케이션
 - **Backend**: Amazon Route53, Amazon CloudFront, AWS Lambda, API Gateway, Aurora DB
 - **Infrastructure**: Terraform, Ansible
 - **Security**: Amazon WAF, Amazon ACM, IAM
