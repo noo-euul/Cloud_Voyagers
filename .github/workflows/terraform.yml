@@ -41,8 +41,6 @@ jobs:
 
 
 
-
-
 #커밋 및 푸시
 #git add .github/workflows/terraform.yml
 #git commit -m "Add Terraform CI/CD pipeline"
