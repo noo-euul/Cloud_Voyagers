@@ -28,16 +28,16 @@ jobs:
 
       - name: Terraform Init
         run: terraform init
-        working-directory: ./project_code
+        working-directory: /Cloud_Voyagers/project_code
 
       - name: Terraform Plan
         run: terraform plan -out=tfplan
-        working-directory: ./project_code
+        working-directory: ./Cloud_Voyagers/project_code
 
       - name: Terraform Apply
         if: github.ref == 'refs/heads/main'
         run: terraform apply -auto-approve tfplan
-        working-directory: ./project_code
+        working-directory: /Cloud_Voyagers/project_code
 
 
 
