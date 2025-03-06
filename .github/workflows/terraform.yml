@@ -26,17 +26,16 @@ jobs:
 
       - name: Terraform Init
         run: terraform init
-        working-directory: ./infrastructure
+        working-directory: ./project_code
 
       - name: Terraform Plan
         run: terraform plan -out=tfplan
-        working-directory: ./infrastructure
+        working-directory: ./project_code
 
       - name: Terraform Apply
         if: github.ref == 'refs/heads/main'
         run: terraform apply -auto-approve tfplan
-        working-directory: ./infrastructure
-
+        working-directory: ./project_code
 
 
 #커밋 및 푸시
